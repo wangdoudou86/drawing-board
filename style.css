@@ -5,3 +5,17 @@
 *{
     margin:0;
 }
+.items{
+    position:fixed;
+    left:0;
+    bottom:0;
+}
+.items #brush{
+   display: none;    
+}
+.items.useEraser #eraser{
+   display: none;
+}
+.items.useEraser #brush{
+    display: inline-block;
+}
