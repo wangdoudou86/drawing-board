@@ -1,10 +1,9 @@
 *{margin:0;padding:0;}
-body{
-    overflow: hidden;
-}
 ol,ul,li{list-style: none;}
 #xxx{
-    display: block;   
+    display: block;
+    position: fixed;
+    top:0;left:0; /*把画布完全固定住，不让它滑来滑去*/   
 }
 .items{
     position:fixed;
@@ -47,3 +46,24 @@ ol,ul,li{list-style: none;}
  .colors li.green{background:green;}
  .colors li.blue{background:blue;}
  .colors li.yellow{background:yellow;}
+
+ ul.sizes{
+  position: fixed;
+  top:20px;
+  right:20px;
+ }
+ .sizes li{
+     margin:10px;
+     transition: all 0.3s;
+ }
+ .sizes li.active{
+    transform: scaleX(1.3)
+}
+ .sizes .thin{
+     border-bottom:4px solid black;
+     width:40px;
+ }
+ .sizes .thick{
+    border-bottom:7px solid black;
+    width:40px;    
+}

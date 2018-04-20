@@ -47,7 +47,32 @@ pen.onclick = function () {
   pen.classList.add('active')
   eraser.classList.remove('active')  
 }
-
+//清除当前画布
+clear.onclick = function(){
+  context.clearRect(0,0,yyy.width,yyy.height)
+}
+//切换粗细
+var lineSize = 5
+thin.onclick = function(){
+  lineSize = 4
+  thick.classList.remove('active')
+  thin.classList.add('active')  
+}
+thick.onclick = function(){
+  lineSize = 8  
+  thin.classList.remove('active')  
+  thick.classList.add('active') 
+}
+//另存为
+download.onclick = function(){
+  var url = yyy.toDataURL('image/png')
+  var a = document.createElement('a')
+  document.body.appendChild(a)
+  a.href = url
+  a.download = 'picture'
+  a.target = '_blank'
+  a.click()
+}  
 
 
 //设置画布大小
@@ -72,7 +97,7 @@ function drawCircle(x, y, radius) {
 }
 function drawLine(x1, y1, x2, y2) {
   context.beginPath()
-  context.lineWidth = 5
+  context.lineWidth = lineSize
   context.moveTo(x1, y1)
   context.lineTo(x2, y2)
   context.stroke()
@@ -85,6 +110,8 @@ function listenToUser(canvas) {
     //触屏设备
     var using = false
     var lastPoint = { x: undefined, y: undefined }
+    context.fillStyle = 'white'
+    context.fillRect(0,0,canvas.width,canvas.height)
     canvas.ontouchstart = function(a){
       var x = a.touches[0].clientX
       var y = a.touches[0].clientY
@@ -92,6 +119,7 @@ function listenToUser(canvas) {
       if (eraserEnabled) {
         context.clearRect(x - 5, y - 5, 10, 10)
       } else {
+        
         lastPoint = { x: x, y: y }
       }
     }
