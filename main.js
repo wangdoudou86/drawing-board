@@ -3,24 +3,50 @@ var context = yyy.getContext('2d')
 
 setCanvasSize(yyy)
 listenToUser(yyy)
+//切换颜色
+var colors = document.getElementById('colors')
+black.onclick = function(){
+  context.fillStyle = 'black'
+  context.strokeStyle = 'black'
+  colors.querySelector('.active').classList.remove('active')
+  black.classList.add('active') 
+}
+red.onclick = function(){
+  context.fillStyle = 'red'
+  context.strokeStyle = 'red' 
+  colors.querySelector('.active').classList.remove('active')  
+  red.classList.add('active')
+}
+green.onclick = function(){
+  context.fillStyle = 'green'
+  context.strokeStyle = 'green'
+  colors.querySelector('.active').classList.remove('active')  
+  green.classList.add('active')
+}
+blue.onclick = function(){
+  context.fillStyle = 'blue'
+  context.strokeStyle = 'blue'
+  colors.querySelector('.active').classList.remove('active')  
+  blue.classList.add('active') 
+}
+yellow.onclick = function(){
+  context.fillStyle = 'yellow'
+  context.strokeStyle = 'yellow'
+  colors.querySelector('.active').classList.remove('active')  
+  yellow.classList.add('active') 
+}
 //橡皮擦与画笔按钮状态切换
 var eraserEnabled = false
 eraser.onclick = function () {
   eraserEnabled = true
-  items.className = 'items useEraser'
+  eraser.classList.add('active')
+  pen.classList.remove('active')  
 }
-brush.onclick = function () {
+pen.onclick = function () {
   eraserEnabled = false
-  items.className = 'items'
+  pen.classList.add('active')
+  eraser.classList.remove('active')  
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -41,13 +67,11 @@ function setCanvasSize(canvas) {
 //画线画圆
 function drawCircle(x, y, radius) {
   context.beginPath()
-  context.fillStyle = 'black'
   context.arc(x, y, radius, 0, Math.PI * 2)
   context.fill()
 }
 function drawLine(x1, y1, x2, y2) {
   context.beginPath()
-  context.strokeStyle = 'black'
   context.lineWidth = 5
   context.moveTo(x1, y1)
   context.lineTo(x2, y2)

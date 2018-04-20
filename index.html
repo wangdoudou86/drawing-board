@@ -9,9 +9,21 @@
 <body>
   <canvas id="xxx"></canvas>
   <div id="items" class="items">
-    <button id="eraser">橡皮擦</button>
-    <button id="brush">画笔</button>
+      <svg id="pen" class="icon active">
+          <use xlink:href="#icon-pen"></use>
+      </svg>
+      <svg id="eraser" class="icon">
+          <use xlink:href="#icon-eraser"></use>
+      </svg>
   </div>
+  <ol id="colors" class="colors">
+    <li id="black" class="black active"></li>
+    <li id="red" class="red"></li>
+    <li id="green" class="green"></li>
+    <li id="yellow" class="yellow"></li>
+    <li id="blue" class="blue"></li>
+  </ol>
   <script src="./main.js"></script> <!-- 把这个引用放在canvas之后，否则js中取不到值-->
+  <script src="//at.alicdn.com/t/font_637179_pp3z9gyea8fo5hfr.js"></script>
 </body>
 </html>
