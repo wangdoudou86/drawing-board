@@ -35,6 +35,12 @@ yellow.onclick = function(){
   colors.querySelector('.active').classList.remove('active')  
   yellow.classList.add('active') 
 }
+pink.onclick = function(){
+  context.fillStyle = 'pink'
+  context.strokeStyle = 'pink'
+  colors.querySelector('.active').classList.remove('active')  
+  pink.classList.add('active') 
+}
 //橡皮擦与画笔按钮状态切换
 var eraserEnabled = false
 eraser.onclick = function () {
@@ -63,7 +69,7 @@ thick.onclick = function(){
   thin.classList.remove('active')  
   thick.classList.add('active') 
 }
-//另存为
+//下载到本地
 download.onclick = function(){
   var url = yyy.toDataURL('image/png')
   var a = document.createElement('a')
@@ -142,6 +148,8 @@ function listenToUser(canvas) {
     //非触屏设备
     var using = false
     var lastPoint = { x: undefined, y: undefined }
+    context.fillStyle = 'white'
+    context.fillRect(0,0,canvas.width,canvas.height)
     //按下鼠标
     canvas.onmousedown = function (a) {
       var x = a.clientX

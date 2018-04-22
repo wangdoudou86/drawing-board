@@ -46,6 +46,7 @@ ol,ul,li{list-style: none;}
  .colors li.green{background:green;}
  .colors li.blue{background:blue;}
  .colors li.yellow{background:yellow;}
+ .colors li.pink{background:pink;}
 
  ul.sizes{
   position: fixed;
